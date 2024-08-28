@@ -12,8 +12,8 @@
 #define DOLPHIN_STATE_PATH           INT_PATH(DOLPHIN_STATE_FILE_NAME)
 #define DOLPHIN_STATE_HEADER_MAGIC   0xD0
 #define DOLPHIN_STATE_HEADER_VERSION 0x01
-#define LEVEL2_THRESHOLD             300
-#define LEVEL3_THRESHOLD             1800
+#define LEVEL2_THRESHOLD             1
+#define LEVEL3_THRESHOLD             2
 #define BUTTHURT_MAX                 14
 #define BUTTHURT_MIN                 0
 
@@ -191,8 +191,8 @@ void dolphin_state_clear_limits(DolphinState* dolphin_state) {
     furi_assert(dolphin_state);
 
     for(int i = 0; i < DolphinAppMAX; ++i) {
-        dolphin_state->data.icounter_daily_limit[i] = 0;
+        dolphin_state->data.icounter_daily_limit[i] = 999999999999999999;
     }
-    dolphin_state->data.butthurt_daily_limit = 0;
+    dolphin_state->data.butthurt_daily_limit = 9999999999999999999;
     dolphin_state->dirty = true;
 }
